@@ -7,6 +7,7 @@
           auto-grow
           autofocus
           clearable
+          v-model="extractUrls"
       ></v-textarea>
       <v-btn large @click="startCrawl">Start</v-btn>
     </v-layout>
@@ -16,7 +17,6 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import VuetifyLogo from '~/components/VuetifyLogo.vue'
-import CrawlerService from '~/service/crawler.service'
 import * as API from '~/service/rest.service'
 
 export default {
@@ -28,18 +28,14 @@ export default {
     return {
       db: {},
       crawlerService: {},
-      extractUrls: `https://www.amazon.com/dp/B00N0IHMXM, https://www.amazon.com/dp/B009FUF6DM`,
+      extractUrls: "",
       crawlUrls: []
     }
   },
   created() {
-    this.crawlerService = new CrawlerService();
-    this.crawlerService.initCrawler();
   },
   methods: {
     startCrawl() {
-      // this.crawlerService.queue(this.extractUrls);
-      // this.crawlerService.start();
       API.runScheduler("/scheduler", this.extractUrls)
     }
   }
