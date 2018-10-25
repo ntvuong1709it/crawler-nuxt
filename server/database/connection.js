@@ -6,22 +6,6 @@ const DbConnection = {
     url : DB.DB_URL,
 
     connect: function() {
-        mongoose.connection.on('open', () => {
-            mongoose.connection.db.collection('agendaDb', (err, collection) => {
-              collection.updateMany({ lockedAt: { $exists: true }, lastFinishedAt: { $exists: false } }, {
-                $unset: {
-                  lockedAt: undefined,
-                  lastModifiedBy: undefined,
-                  lastRunAt: undefined
-                },
-                $set: { nextRunAt: new Date() }
-              }, { multi: true }, (e, numUnlocked) => {
-                if (e) { console.error(e); }
-                console.log(`Unlocked #{${numUnlocked}} jobs.`);
-              });
-            });
-          });
-
         mongoose.connect(this.url, { 
             useNewUrlParser: true,
             socketTimeoutMS: 0,
