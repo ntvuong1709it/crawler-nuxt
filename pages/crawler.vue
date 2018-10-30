@@ -28,15 +28,14 @@ export default {
     return {
       db: {},
       crawlerService: {},
-      extractUrls: "",
-      crawlUrls: []
+      extractUrls: ""
     }
   },
   created() {
   },
   methods: {
     startCrawl() {
-      API.runScheduler("/scheduler", this.extractUrls)
+      API.runScheduler("/api/scheduler", this.extractUrls)
     }
   }
 }

@@ -15,9 +15,15 @@ const items = [
 
 router.post('/scheduler', function (req, res, next) {
   const data = req.body;
+  console.log(data);
 
   schedulerService.runEveryMinute(data.urls);
   res.send("Crawler is running");
 })
+
+router.get('/testing', function (req, res, next) {
+  res.json("it's working")
+})
+
 
 module.exports = router

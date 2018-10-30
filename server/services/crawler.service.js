@@ -7,7 +7,9 @@ module.exports = {
   crawler : {},
   initCrawler() {
     this.crawler = new Crawler("https://www.amazon.com/dp/B00N0IHMXM");
-    this.crawler.interval = 1000;
+    this.crawler.respectRobotsTxt=true
+    this.crawler.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36";
+    this.crawler.interval = 500;
     this.crawler.maxConcurrency = 1;
     this.crawler.maxDepth = 1;
 

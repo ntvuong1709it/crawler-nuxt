@@ -8,6 +8,7 @@ export function postItem(url, data) {
   return axios.post(url, { data });
 }
 
-export function runScheduler(url,urls) {
+export function runScheduler(url, urls) {
+  console.log(urls);
   return axios.post(url, { urls });
 }
