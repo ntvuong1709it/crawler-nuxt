@@ -5,8 +5,8 @@ const bodyParser = require('body-parser')
 const app = express()
 
 
-app.use(bodyParser.json()) // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
+app.use(bodyParser.json({limit: '50mb'})) // support json encoded bodies
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true })) // support encoded bodies
 
 // Require API routes
 const items = require('./routes/item')

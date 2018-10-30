@@ -7,15 +7,8 @@ const schedulerService = require('../services/scheduler')
 DbConnection.connect()
 crawlerService.initCrawler();
 
-const items = [
-    { name: 'Alexandre' },
-    { name: 'Pooya' },
-    { name: 'Sébastien' }
-  ]
-
 router.post('/scheduler', function (req, res, next) {
   const data = req.body;
-  console.log(data);
 
   schedulerService.runEveryMinute(data.urls);
   res.send("Crawler is running");
