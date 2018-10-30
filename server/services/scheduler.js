@@ -10,7 +10,7 @@ const Scheduler  = {
             await this.agenda.start();
             console.log('Start scheduler to crawl');
             console.log(urls)
-            await this.agenda.every('30 seconds', 'crawl', urls)
+            await this.agenda.every('one day', 'crawl', urls)
           })();
         
     },

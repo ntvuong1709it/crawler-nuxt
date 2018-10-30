@@ -34,8 +34,6 @@ const DbConnection = {
         itemModel.createdTimeOnUtc = item.createdTimeOnUtc;
         itemModel.modifiedTimeOnUtc = item.modifiedTimeOnUtc;
 
-        console.log(itemModel);
-
         itemModel.save();
     },
     findOneAndUpdate: function(item) {
